@@ -8,6 +8,8 @@ namespace WillowCreekNotes
 {
     static class Program
     {
+        public static NoteSystem System;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,7 +18,9 @@ namespace WillowCreekNotes
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            System = new NoteSystem();
+            System.Startup();
+            Application.Run(new GlobalToolWindow());
         }
     }
 }
