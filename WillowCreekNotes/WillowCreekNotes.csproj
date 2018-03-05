@@ -64,19 +64,19 @@
     <Compile Include="NotePanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="NoteSource.cs" />
     <Compile Include="NoteSystem.cs" />
-    <Compile Include="NoteWindow.cs">
+    <Compile Include="SingleWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NoteWindow.Designer.cs">
-      <DependentUpon>NoteWindow.cs</DependentUpon>
+    <Compile Include="SingleWindow.Designer.cs">
+      <DependentUpon>SingleWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StackWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StackWindow.Designer.cs">
+      <DependentUpon>StackWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -84,14 +84,14 @@
     <Compile Include="TextNotePanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GlobalToolWindow.resx">
       <DependentUpon>GlobalToolWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NoteWindow.resx">
-      <DependentUpon>NoteWindow.cs</DependentUpon>
+    <EmbeddedResource Include="SingleWindow.resx">
+      <DependentUpon>SingleWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StackWindow.resx">
+      <DependentUpon>StackWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -101,6 +101,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="TextNotePanel.resx">
       <DependentUpon>TextNotePanel.cs</DependentUpon>
@@ -117,6 +118,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TestImage.bmp" />
+    <None Include="Resources\PopNoteOut.bmp" />
+    <None Include="Resources\Test2.bmp" />
+    <Content Include="ToolbarBitmaps\LeftArrow.bmp" />
+    <Content Include="ToolbarBitmaps\RightArrow.bmp" />
+    <Content Include="ToolbarBitmaps\UpArrow.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

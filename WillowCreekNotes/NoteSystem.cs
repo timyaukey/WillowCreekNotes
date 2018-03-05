@@ -9,16 +9,19 @@ namespace WillowCreekNotes
     public class NoteSystem
     {
         public readonly List<NoteFactory> NoteFactories;
+        public readonly List<StackWindow> StackWindows;
 
         public NoteSystem()
         {
             NoteFactories = new List<NoteFactory>();
+            StackWindows = new List<StackWindow>();
         }
 
         public void Startup()
         {
             LoadFactories();
             CreateNotes();
+            ShowStacks();
         }
 
         public void CreateNotes()
@@ -26,6 +29,15 @@ namespace WillowCreekNotes
             foreach (NoteSource source in GetLocalFiles())
             {
                 CreateNote(source);
+            }
+        }
+
+        public void ShowStacks()
+        { 
+            foreach(StackWindow win in StackWindows)
+            {
+                win.ShowPanel(win.NotePanels[0]);
+                win.ShowWindow();
             }
         }
 
@@ -60,18 +72,15 @@ namespace WillowCreekNotes
 
         public void AddNotePanel(NotePanel panel)
         {
-            NoteWindow win = new NoteWindow();
-            win.SuspendLayout();
-            //panel.Location = new System.Drawing.Point(10, 10);
-            //panel.Size = new System.Drawing.Size(300, 300);
-            panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            panel.Name = "ContentPanel";
-            panel.TabIndex = 0;
-            //panel.Visible = true;
-            win.Controls.Add(panel);
-            win.ResumeLayout(false);
-            win.Show();
-            win.Refresh();
+            StackWindow win = GetStackWindow(panel);
+            win.AddPanel(panel);
+        }
+
+        private StackWindow GetStackWindow(NotePanel panel)
+        {
+            if (StackWindows.Count == 0)
+                StackWindows.Add(new StackWindow());
+            return StackWindows[0];
         }
 
         public string NoteDataFolder

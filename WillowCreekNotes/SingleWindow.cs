@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WillowCreekNotes
 {
-    public partial class Form1 : Form
+    public partial class SingleWindow : Form
     {
-        public Form1()
+        public SingleWindow()
         {
             InitializeComponent();
         }
